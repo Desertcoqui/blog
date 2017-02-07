@@ -3,6 +3,7 @@ import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -20,7 +21,7 @@ public class PostController {
 
     @GetMapping("/post/{id}")
     @ResponseBody
-     public String IndividualPost(@PathVariable String id){
+     public String IndividualPost(@PathVariable long id){
         return "<h1> View your individual post, your id number is "+id+"</h1>";
     }
 
@@ -30,4 +31,10 @@ public class PostController {
         return "<h1>This is the form for creating a post</h1>";
     }
 
+
+    @PostMapping("/post/create")
+    @ResponseBody
+    public String CreateNewPost(){
+        return "create a new post";
+    }
 }

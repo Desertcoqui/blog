@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Default</title>
+</head>
+<body>
+<!--This is called from the HelloWorldController-->
+
+This is the default page
+Today is:<p th:text="${date}"></p>
+
+<!--newNavbar is pulling from a fragment html named navTest-->
+<div th:include="fragments/navTest::newNavbar">
+    This is inside content
+</div>
+
+<h3>Number of bobs</h3>
+<ul>
+    <span th:each="name:${ListNames}">
+        <li th:text="${name}"></li>
+    </span>
+
+</ul>
+
+</body>
+</html>
