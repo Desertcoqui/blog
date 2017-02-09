@@ -17,6 +17,7 @@ Today is:<p th:text="${date}"></p>
 
 <h3>Number of bobs</h3>
 <ul>
+    <!--name is a variable that holds the value of Listnames from the HelloWorldController-->
     <span th:each="name:${ListNames}">
         <li th:text="${name}"></li>
     </span>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<h1 th:if="${n == rollDice}">Your dice are a match, You win</h1>
+<h1 th:if="${n != rollDice}">Your dice are not a match, You lose</h1>
+
+<p> Your guess was <span th:text="${n}"/> , the number was
+    <span th:text="${rollDice}"/>
+</p>
+
+</body>
+</html>

@@ -36,6 +36,8 @@ public class HelloWorldController {
         return "/demo/default";
     }
 
+
+    //file is being called from contact/form.html
     @GetMapping("/contact")
     public String contactPage(){
         return "contact/form";
