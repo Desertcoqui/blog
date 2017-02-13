@@ -5,6 +5,8 @@
     <title>List of posts</title>
 </head>
 <body>
+<!--Build your fragments/navTest to include in your adlister -->
+<div th:include="fragments/navTest::newNavbar"></div>
     <div th:each="post: ${posts}">
         <h2 th:text="${post.title}"></h2>
         <p th:text="${post.body}"></p>

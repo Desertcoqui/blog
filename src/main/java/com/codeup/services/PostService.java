@@ -1,10 +1,13 @@
 package com.codeup.services;
 
 import com.codeup.model.Post;
+import com.codeup.repositories.Posts;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 /**
  * Created by PapoteDetres1 on 2/9/17.
@@ -12,31 +15,39 @@ import java.util.List;
 
 @Service("postService")
 public class PostService {
-    private List<Post> posts= new ArrayList<>();
 
-    private void PostService(){
-        for(int i=0; i< 100; i++){
-            posts.add(new Post(i+1,"Title"+(i+1),"Body"+(i+1)));
-        }
-    }
+    @Autowired
+    Posts postsDao;
+
+//     private Iterable<Post> posts= new ArrayList<>();
+
+//    private void PostService(){
+//        for(int i=0; i< 100; i++){
+//            posts.add(new Post(i+1,"Title"+(i+1),"Body"+(i+1)));
+//        }
+//    }
+
 
     public PostService() {
-        PostService();
+        createPosts();
+    }
+
+    private void createPosts(){
+
     }
 
     public Post save (Post post) {
-        post.setId(posts.size() + 1);
-        posts.add(post);
+        postsDao.save(post);
         return post;
     }
 
     public Post findOnePost(long id){
 
-        return posts.get((int)id-1);
+        return postsDao.findOne(id);
     }
 
-    public List<Post> findAllPost(){
+    public Iterable<Post> findAllPost(){
 
-        return posts;
+        return postsDao.findAll();
     }
 }
